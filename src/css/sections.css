@@ -504,28 +504,25 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   cursor: col-resize;
-  aspect-ratio: 16/10;
+  aspect-ratio: 1/1; /* changed to square to perfectly match the 1024x1024 composite source */
 }
 
 .ba-slider-container img {
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
-  width: 200%;
-  max-width: none;
+  width: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
 .ba-before {
   z-index: 1;
-  left: 0;
 }
 
 .ba-after {
   z-index: 2;
-  left: -100%;
-  clip-path: inset(0 0 0 75%);
+  clip-path: inset(0 50% 0 0);
 }
 
 .ba-handle {
