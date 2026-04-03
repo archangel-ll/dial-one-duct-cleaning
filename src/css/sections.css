@@ -504,7 +504,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   cursor: col-resize;
-  aspect-ratio: 1/1; /* changed to square to perfectly match the 1024x1024 composite source */
+  aspect-ratio: 1/2; /* Essential: 1/2 geometry paired with 200% width results in 1:1 image geometry, preventing ANY cropping of the 1024x1024 square image! */
+  max-height: 80vh; /* Keep it from being taller than the screen on desktop */
 }
 
 .ba-slider-container img {
@@ -512,17 +513,21 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: 200%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
 }
 
 .ba-before {
   z-index: 1;
+  left: 0;
 }
 
 .ba-after {
   z-index: 2;
-  clip-path: inset(0 50% 0 0);
+  left: -100%;
+  clip-path: inset(0 0 0 75%);
 }
 
 .ba-handle {

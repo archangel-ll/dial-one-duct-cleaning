@@ -60,8 +60,13 @@ The project uses `vite.config.js` to define its deployment path. Currently, the 
 *Note: If migrating strictly to GitHub Pages on an organization/user domain (e.g. `user.github.io/repo-name/`), the base must be updated to match the repository name (e.g., `base: '/dial-one-duct-cleaning/'`).*
 
 ### 2. Side-By-Side Image Slider implementation
-The Before/After slider at `#results` uses a composite source image (`/images/before-after.jpg`) containing both the "Before" and "After" states side-by-side.
-To prevent the side-by-side image from being heavily zoomed in and cropped when subjected to `object-fit: cover` within a wide container, the `.ba-slider-container` has been given an `aspect-ratio: 1/1` (square). This geometry perfectly matches the square 1024x1024 source image, ensuring 100% visibility of both the dirty and clean duct without cropping. The slider handle is positioned over this layout as an interactive focal point.
+The Before/After slider at `#results` utilizes a highly specific geometric math trick to handle a side-by-side source image (`before-after.jpg`) without cropping or distortions:
+- The container `.ba-slider-container` is locked to an `aspect-ratio: 1/2` (so it is a tall portrait rectangle).
+- The images inside `.ba-before` and `.ba-after` are set to `width: 200%`.
+Because putting a 200% width element inside a 1:2 container perfectly squares the element's resulting geometry back to `1:1`, the square `1024x1024` source image receives `0%` vertical cropping while still stretching the left and right halves fully apart to span the container!
+- **The "Before" image (`.ba-before`)** lives at `left: 0`.
+- **The "After" image (`.ba-after`)** lives at `left: -100%`.
+- **The JavaScript (`slider.js`)** translates the user's cursor percentage over the container to a custom CSS `clip-path` math (`50 + (percent/2)`) on the overlaid `.ba-after` image, perfectly revealing the active side.
 
 ### 3. CSS Shorthand Override Avoidance
 When styling form elements across the site, stick to specific properties like `background-color:` instead of the shorthand `background:`. The component framework heavily leverages `background-image` for interactive elements (such as custom SVG drop-down arrows in `.form-select`). Using the shorthand `background` inadvertently resets `background-image`, `background-repeat`, and `background-position` resulting in unwanted visual bugs (such as repeating icon patterns).
