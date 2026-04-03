@@ -504,8 +504,9 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   cursor: col-resize;
-  aspect-ratio: 1/2; /* Essential: 1/2 geometry paired with 200% width results in 1:1 image geometry, preventing ANY cropping of the 1024x1024 square image! */
-  max-height: 80vh; /* Keep it from being taller than the screen on desktop */
+  aspect-ratio: 1/1; /* 1:1 Square provides an excellent middle ground, preventing extreme verticality on desktop while keeping zoom moderate. */
+  max-height: 600px; /* Limit height on desktop so it doesn't take over the entire screen */
+  max-width: 100%;
 }
 
 .ba-slider-container img {
