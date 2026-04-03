@@ -504,30 +504,26 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   cursor: col-resize;
-  aspect-ratio: 1/1; /* 1:1 Square provides an excellent middle ground, preventing extreme verticality on desktop while keeping zoom moderate. */
-  max-height: 600px; /* Limit height on desktop so it doesn't take over the entire screen */
-  max-width: 100%;
+  aspect-ratio: 16/10; 
+  background-color: var(--neutral-900); /* Dark background for letterboxing */
 }
 
 .ba-slider-container img {
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
-  width: 200%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
+  object-fit: contain; /* Prevents zooming and distortion */
 }
 
 .ba-before {
   z-index: 1;
-  left: 0;
 }
 
 .ba-after {
   z-index: 2;
-  left: -100%;
-  clip-path: inset(0 0 0 75%);
+  clip-path: inset(0 50% 0 0);
 }
 
 .ba-handle {

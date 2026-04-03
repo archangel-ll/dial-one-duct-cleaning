@@ -17,8 +17,7 @@ export function initSlider() {
     pos = Math.max(0.05, Math.min(0.95, pos));
     
     const percent = pos * 100;
-    const insetLeft = 50 + (percent / 2);
-    afterImg.style.clipPath = `inset(0 0 0 ${insetLeft}%)`;
+    afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     handle.style.left = `${percent}%`;
   }
 
