@@ -504,8 +504,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   cursor: col-resize;
-  aspect-ratio: 16/10; 
-  background-color: var(--neutral-900); /* Dark background for letterboxing */
+  aspect-ratio: 16/9; /* Cinematic 16:9 aspect ratio for a premium wide-screen look. */
 }
 
 .ba-slider-container img {
@@ -514,7 +513,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  object-fit: contain; /* Prevents zooming and distortion */
+  object-fit: cover;
 }
 
 .ba-before {
