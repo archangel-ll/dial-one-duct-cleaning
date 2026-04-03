@@ -1,0 +1,204 @@
+/* ============================================
+   DIAL ONE DUCT CLEANING — Responsive
+   ============================================ */
+
+/* ── Tablet (max-width: 1024px) ── */
+@media (max-width: 1024px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .hero-image {
+    order: 2;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-float-rating,
+  .hero-float-badge {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-secondary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-us-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .why-us-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .review-card {
+    min-width: calc(50% - var(--space-3));
+  }
+}
+
+/* ── Mobile Large (max-width: 768px) ── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 32, 68, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    z-index: var(--z-overlay);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: var(--text-xl);
+  }
+
+  .nav-cta .btn {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .mobile-cta {
+    display: block;
+  }
+
+  body {
+    padding-bottom: 70px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 80px;
+  }
+
+  .hero h1 {
+    font-size: var(--text-3xl);
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .why-us-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .review-card {
+    min-width: calc(100% - var(--space-2));
+  }
+
+  .reviews-header-stats {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ba-slider-container {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* ── Mobile Small (max-width: 480px) ── */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    padding: var(--space-6);
+  }
+
+  .contact-form {
+    padding: var(--space-6);
+  }
+
+  .stat-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .section-badge {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ── Large Desktop (min-width: 1400px) ── */
+@media (min-width: 1400px) {
+  :root {
+    --container-max: 1320px;
+  }
+}
